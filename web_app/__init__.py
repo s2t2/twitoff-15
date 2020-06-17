@@ -7,10 +7,12 @@ from web_app.routes.twitter_routes import twitter_routes
 from web_app.routes.stats_routes import stats_routes
 
 DATABASE_URL = "sqlite:///twitoff_15_development.db" # using relative filepath
+SECRET_KEY = "todo customize this secret value via env var"
 
 def create_app():
     app = Flask(__name__)
 
+    app.config["SECRET_KEY"] = SECRET_KEY
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
